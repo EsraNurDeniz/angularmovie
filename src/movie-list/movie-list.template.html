@@ -1,0 +1,11 @@
+<slide-deck>
+    <slide ng-repeat="item in $ctrl.items">
+        <div>
+            <div>
+                <h1> Movie Name: {{item.name}} </h1>
+                <img class="slideImage" src="data:image/jpg;base64,{{item.poster}}" />
+                <div class="movieYear"> Movie Year: {{item.year}} </div>
+            </div>
+        </div>
+    </slide>
+</slide-deck>

@@ -1,0 +1,10 @@
+.slideImage {
+    margin-top:10%;
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.movieYear {
+    font-size: large;
+    margin-bottom: 50%;
+  }
