@@ -4,20 +4,15 @@ webpackConfig.mode = 'development';
 module.exports = function(config) {
   config.set({
 
-    basePath: './app/src',
+    basePath: './src',
 
     files: [
-      '../../node_modules/angular/angular.js',
-      '../../node_modules/angular-mocks/angular-mocks.js',
-      '**/*.module.js',
-      '*!(.module|.spec).js',
+      '../node_modules/angular/angular.js',
+      '../node_modules/angular-mocks/angular-mocks.js',
       '**/*.spec.js',
     ],
 
     preprocessors: {
- 
-      '**/*.module.js': ['webpack'],
-      '*!(.module|.spec).js': ['webpack'],
       '**/*.spec.js': ['webpack'],
     },
     // eslint-disable-next-line global-require

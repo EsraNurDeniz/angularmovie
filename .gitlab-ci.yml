@@ -9,10 +9,3 @@ test:
   script: 
     -npm test
 
-e2e:
-  stage: e2e
-  image: cronn/nodejs-chrome-firefox
-  before_script:
-    - apt-get -y install openjdk-8-jre
-  script:
-    -npm run protractor

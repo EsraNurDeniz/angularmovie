@@ -1,7 +1,7 @@
 import factory from './movie.service';
 
 const movieModule = angular
-    .module('core.movie', [])
+    .module('movie', [])
     .factory('movieFactory', factory);
 
 
