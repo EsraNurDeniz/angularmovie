@@ -18,7 +18,6 @@ export default {
             list.then((response) => {
                 console.log("deniz:  " + response.data);
                 that.items = response.data;
-                //that.items[0].poster = that.items[0].poster.toString();
                 console.log(response.data);
             });
         }
