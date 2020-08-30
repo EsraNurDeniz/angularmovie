@@ -2,7 +2,7 @@ import './movie.module';
 
 describe('movie service', () => {
     let httpBackend;
-    let factory;
+    let service;
     let moviesData = [
         {
             id: 1,
@@ -21,8 +21,8 @@ describe('movie service', () => {
 
     beforeEach(
         angular.mock.inject(
-            /* @ngInject */ (movieFactory, $httpBackend) => {
-                factory = movieFactory;
+            /* @ngInject */ (MovieService, $httpBackend) => {
+                service = MovieService;
                 httpBackend = $httpBackend;
                 httpBackend.whenGET('https://localhost:5001/api/MovieItems').respond(moviesData);
             }       
@@ -35,7 +35,7 @@ describe('movie service', () => {
     });
 
     it('should fetch the movies data from http request', () => {
-        let movies = factory.movies();
+        let movies = service.movies();
         httpBackend.flush();
         movies.then((response) => {
             expect(response.data.length).toBe(2);

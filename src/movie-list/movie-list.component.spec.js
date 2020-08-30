@@ -8,7 +8,7 @@ describe('movieList controller', () => {
     beforeEach(
         angular.mock.module(
             'app.movieList', /* @ngInject */ ($provide) => {
-                const mockFactory = {
+                const mockFService = {
                     movies() {
                         return new Promise((resolve) => {
                             resolve({
@@ -23,8 +23,8 @@ describe('movieList controller', () => {
                         })
                     },
                 };
-                $provide.factory('movieFactory', () => {
-                    return mockFactory;
+                $provide.service('MovieService', () => {
+                    return mockFService;
                 });
             },
         ),

@@ -1,10 +1,11 @@
-const factory = /* @ngInject */ ($http) => {
-    return {
-        movies: () => {
-            return $http.get('https://localhost:5001/api/MovieItems');
-        },
-    };
-};
+class MovieService {
+    constructor($http) {
+        this.$http = $http;
+    }
 
-export default factory;
+    movies() {
+        return this.$http.get('https://localhost:5001/api/MovieItems');
+    }
+}
+export default ['$http', MovieService];
 

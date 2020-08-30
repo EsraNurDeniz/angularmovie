@@ -1,8 +1,8 @@
-import factory from './movie.service';
+import MovieService from './movie.service';
 
 const movieModule = angular
     .module('movie', [])
-    .factory('movieFactory', factory);
+    .service('MovieService', MovieService);
 
 
 export default movieModule.name;

@@ -3,20 +3,20 @@ import { HubConnectionBuilder } from '@microsoft/signalr';
 
 export default {
     template,
-    controller: /* @ngInject */ function MovieListControler(movieFactory) {
+    controller: /* @ngInject */ function MovieListControler(MovieService) {
         const that = this;
         that.items = [];
 
         that.getMovies = () => 
         {
-            return movieFactory.movies();
+            return MovieService.movies();
         }
 
         that.listMovies = () =>
         {
             const list = that.getMovies();
             list.then((response) => {
-                console.log(response.data);
+                console.log("deniz:  " + response.data);
                 that.items = response.data;
                 //that.items[0].poster = that.items[0].poster.toString();
                 console.log(response.data);
