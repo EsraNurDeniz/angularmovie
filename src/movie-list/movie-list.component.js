@@ -16,9 +16,7 @@ export default {
         {
             const list = that.getMovies();
             list.then((response) => {
-                console.log("deniz:  " + response.data);
                 that.items = response.data;
-                console.log(response.data);
             });
         }
 
