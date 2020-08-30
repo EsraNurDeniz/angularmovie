@@ -1,28 +1,10 @@
-import template from './movie-list.template.html';
+import Template from './movie-list.template.html';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 
-export default {
-    template,
-    controller: /* @ngInject */ function MovieListControler(MovieService) {
-        const that = this;
-        that.items = [];
-
-        that.getMovies = () => 
-        {
-            return MovieService.movies();
-        }
-
-        that.listMovies = () =>
-        {
-            const list = that.getMovies();
-            list.then((response) => {
-                that.items = response.data;
-            });
-        }
-
-        that.$onInit = () => {
-            that.listMovies();
-        }
+class MovieListComponent {
+    constructor (MovieService) {
+        this.MovieService = MovieService;
+        this.items = [];
 
         const API_URL = 'http://localhost:5000';
         const connection = new HubConnectionBuilder()
@@ -37,5 +19,28 @@ export default {
                 console.log('GetData tetiklendi.');
                 that.listMovies();
             })
-    },
+
+        this.$onInit = () => {
+            this.listMovies();
+        }
+    }
+
+    getMovies () {
+        return this.MovieService.movies();
+    }
+
+    listMovies () {
+        const list = this.getMovies();
+        list.then((response) => {
+            this.items = response.data;
+        });
+    }
 }
+
+export default {
+    controller: ["MovieService", MovieListComponent],
+    template : Template
+};
+    
+
+ 
