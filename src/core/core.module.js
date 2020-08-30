@@ -1,6 +1,6 @@
 import angular from 'angular';
-import movieService from "./movie";
+import movieModule from "./movie/movie.module";
 
-const coreModule = angular.module('core', [movieService]);
+const coreModule = angular.module('core', [movieModule]);
 
 export default coreModule.name;
